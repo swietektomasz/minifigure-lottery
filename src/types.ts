@@ -9,6 +9,17 @@ export type Minifigure = {
   last_modified_dt: string;
 };
 
+export type Part = {
+  id: number;
+  part: {
+    part_num: string;
+    name: string;
+    part_url: string;
+    part_img_url: string;
+  };
+  set_num: string;
+};
+
 export type MinifigureActions = {
   type: "choose-fig" | "submit-fig";
   data: Minifigure;

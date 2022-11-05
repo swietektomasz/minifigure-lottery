@@ -1,19 +1,22 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import { Home, Lottery } from "./components";
+import { Home, Lottery, Shipment } from "./components";
+import { MinifigureProvider } from "./context/Minifigures";
 
 import "./App.css";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home />,
-  },
-  { path: "lottery", element: <Lottery /> },
-]);
-
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <MinifigureProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/lottery" element={<Lottery />} />
+          <Route path="/shipment" element={<Shipment />} />
+        </Routes>
+      </BrowserRouter>
+    </MinifigureProvider>
+  );
 }
 
 export default App;

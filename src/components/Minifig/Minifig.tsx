@@ -32,16 +32,18 @@ export const Minifig = ({ set }: { set: Array<Minifigure> }) => {
 
   return (
     <div className="lottery__box" id={randomFig?.name}>
-      {set.map((fig) => (
+      {set.map(({ set_img_url, name, set_url }) => (
         <div
           className="minifig"
-          key={fig.set_img_url}
+          key={set_img_url}
           onClick={() => chooseFig()}
-          id={fig.set_img_url}
+          id={set_img_url}
         >
-          <img className="minifig__img" src={fig.set_img_url} />
-          <p>{fig.name}</p>
-          <a>Show details</a>
+          <img className="minifig__img" src={set_img_url} />
+          <p>{name}</p>
+          <a href={set_url} target="_blank" rel="noreferer">
+            Show details
+          </a>
         </div>
       ))}
     </div>

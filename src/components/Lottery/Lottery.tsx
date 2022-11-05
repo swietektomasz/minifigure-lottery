@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-import { MinifigureProvider } from "../../context/Minifigures";
-import { useGetMinifigs } from "../../hooks/useGetMinifigs";
+import { Minifig } from "../";
 import { Minifigure } from "../../types";
-import { Minifig } from "../Minifig/Minifig";
+import { useGetMinifigs } from "../../hooks/useGetMinifigs";
+import { MinifigureProvider } from "../../context/Minifigures";
 
 export const Lottery = () => {
+  const navigate = useNavigate();
   const { data, status } = useGetMinifigs("in_theme_id=246&page=1");
   const [randomSets, setRandomSets] = useState<{
     [key: string]: Array<Minifigure>;
@@ -41,7 +43,9 @@ export const Lottery = () => {
           </MinifigureProvider>
         )}
       </div>
-      <button className="button">Proceed to shipment</button>
+      <button className="button" onClick={() => navigate("/shipment")}>
+        Proceed to shipment
+      </button>
     </div>
   );
 };

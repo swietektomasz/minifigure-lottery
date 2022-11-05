@@ -8,7 +8,7 @@ import {
 
 const DEFAULT_MINIFIGURE_STATE: MinifigureState = {
   figurine: {
-    name: "",
+    name: "poop",
     last_modified_dt: "",
     num_parts: 0,
     set_img_url: "",
@@ -56,6 +56,8 @@ function useMinifigures() {
   if (context === undefined) {
     throw new Error("useMinifigures must be used within a MinifigureProvider");
   }
+
+  console.log(context.state.figurine);
 
   return context;
 }
