@@ -12,11 +12,7 @@ export const Minifig = ({ set }: { set: Array<Minifigure> }) => {
     () => set[Math.floor(Math.random() * set.length)],
     [set]
   );
-  const figElement = randomFig && document.getElementById(randomFig.name);
-
-  document
-    .getElementById(randomFig?.name)
-    ?.scrollIntoView({ behavior: "smooth" });
+  const figElement = document.getElementById(randomFig?.name);
 
   const chooseFig = () => {
     dispatch({ type: "choose-fig", data: randomFig });
@@ -24,16 +20,25 @@ export const Minifig = ({ set }: { set: Array<Minifigure> }) => {
   };
 
   useEffect(() => {
-    if (randomFig && figurine.name !== randomFig.name && figElement)
+    if (figurine.name !== randomFig?.name && figElement)
       figElement.className = "lottery__box";
   }, [figurine]);
 
-  if (!randomFig) return null;
+  useEffect(() => {
+    document
+      .getElementById(randomFig?.set_img_url)
+      ?.scrollIntoView({ behavior: "smooth" });
+  }, [randomFig]);
 
   return (
-    <div className="lottery__box" id={randomFig.name}>
+    <div className="lottery__box" id={randomFig?.name}>
       {set.map((fig) => (
-        <div className="minifig" key={fig.name} onClick={() => chooseFig()}>
+        <div
+          className="minifig"
+          key={fig.set_img_url}
+          onClick={() => chooseFig()}
+          id={fig.set_img_url}
+        >
           <img className="minifig__img" src={fig.set_img_url} />
           <p>{fig.name}</p>
           <a>Show details</a>

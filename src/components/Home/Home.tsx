@@ -4,9 +4,11 @@ export const Home = () => {
   const navigate = useNavigate();
 
   return (
-    <div>
+    <div className="home">
       Lego minigifs mystery box
-      <button onClick={() => navigate("/lottery")}>Let's go!</button>
+      <button className="button" onClick={() => navigate("/lottery")}>
+        Let's go!
+      </button>
     </div>
   );
 };

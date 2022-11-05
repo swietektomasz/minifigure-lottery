@@ -5,6 +5,14 @@
   text-align: center;
 }
 
+.home {
+  display: flex;
+  flex-direction: column;
+  font-size: 24pt;
+  text-transform: uppercase;
+  align-items: center;
+}
+
 .lottery {
   display: flex;
   flex-direction: column;
