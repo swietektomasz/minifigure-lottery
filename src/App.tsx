@@ -14,11 +14,7 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return (
-    <MinifigureProvider>
-      <RouterProvider router={router} />
-    </MinifigureProvider>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

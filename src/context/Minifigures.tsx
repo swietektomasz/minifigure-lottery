@@ -1,5 +1,4 @@
-import { createContext, useContext, useEffect, useReducer } from "react";
-import { getMinifigs } from "../client/client";
+import { createContext, useContext, useReducer } from "react";
 import {
   ContextConsumer,
   MinifigureActions,
@@ -34,12 +33,6 @@ function MinifigureProvider({ children }: ContextConsumer) {
     minifigureReducer,
     DEFAULT_MINIFIGURE_STATE
   );
-
-  useEffect(() => {
-    getMinifigs()
-      .then((figs) => dispatch({ type: "set-figs", data: figs }))
-      .catch((error) => console.log(error));
-  }, []);
 
   const value = { state, dispatch };
 
