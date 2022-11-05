@@ -1,7 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import { Home, Lottery } from "./components";
-import { MinifigureProvider } from "./context/Minifigures";
 
 import "./App.css";
 

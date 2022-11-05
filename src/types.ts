@@ -10,12 +10,12 @@ export type Minifigure = {
 };
 
 export type MinifigureActions = {
-  type: "set-figs" | "roll-figs";
-  data: [];
+  type: "choose-fig" | "submit-fig";
+  data: Minifigure;
 };
 
 export type MinifigureState = {
-  figs: Array<Minifigure>;
+  figurine: Minifigure;
 };
 
 export type MinifigureDispatch = (action: MinifigureActions) => void;

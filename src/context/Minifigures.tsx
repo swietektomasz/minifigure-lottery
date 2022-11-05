@@ -7,7 +7,14 @@ import {
 } from "../types";
 
 const DEFAULT_MINIFIGURE_STATE: MinifigureState = {
-  figs: [],
+  figurine: {
+    name: "",
+    last_modified_dt: "",
+    num_parts: 0,
+    set_img_url: "",
+    set_num: "",
+    set_url: "",
+  },
 };
 
 const MinifigureContext = createContext<
@@ -16,10 +23,10 @@ const MinifigureContext = createContext<
 
 function minifigureReducer(state: MinifigureState, action: MinifigureActions) {
   switch (action.type) {
-    case "set-figs": {
-      return { ...state, figs: action.data };
+    case "choose-fig": {
+      return { figurine: action.data };
     }
-    case "roll-figs": {
+    case "submit-fig": {
       return state;
     }
     default: {
