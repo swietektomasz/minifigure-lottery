@@ -1,20 +1,24 @@
-import {
-  createBrowserRouter,
-  createRoutesFromElements,
-  Route,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import { Home } from "./components";
+import { Home, Lottery } from "./components";
+import { MinifigureProvider } from "./context/Minifigures";
 
 import "./App.css";
 
-const router = createBrowserRouter(
-  createRoutesFromElements(<Route path="/" element={<Home />}></Route>)
-);
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+  },
+  { path: "lottery", element: <Lottery /> },
+]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <MinifigureProvider>
+      <RouterProvider router={router} />
+    </MinifigureProvider>
+  );
 }
 
 export default App;

@@ -1,3 +1,12 @@
+import { useNavigate } from "react-router-dom";
+
 export const Home = () => {
-  return <div>hoom</div>;
+  const navigate = useNavigate();
+
+  return (
+    <div>
+      Lego minigifs mystery box
+      <button onClick={() => navigate("/lottery")}>Let's go!</button>
+    </div>
+  );
 };
