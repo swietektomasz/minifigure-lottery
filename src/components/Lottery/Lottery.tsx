@@ -33,8 +33,8 @@ export const Lottery = () => {
   };
 
   return (
-    <div className="lottery">
-      <div className="lottery__wrapper">
+    <div className="flex flex-col">
+      <div className="flex">
         {status === "fetched" && (
           <MinifigureProvider>
             <Minifig set={randomSets.set1} />

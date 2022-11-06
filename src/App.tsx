@@ -3,8 +3,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Home, Lottery, Shipment } from "./components";
 import { MinifigureProvider } from "./context/Minifigures";
 
-import "./App.css";
-
 function App() {
   return (
     <MinifigureProvider>

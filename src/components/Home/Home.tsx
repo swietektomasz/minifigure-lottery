@@ -4,7 +4,7 @@ export const Home = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="home">
+    <div className="flex flex-col text-xl">
       Lego minigifs mystery box
       <button className="button" onClick={() => navigate("/lottery")}>
         Let's go!
